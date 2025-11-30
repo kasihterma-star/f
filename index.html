@@ -1,261 +1,577 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Spin Wheel dengan Pengaturan</title>
-    <style>
-        * { box-sizing: border-box; font-family: Arial, sans-serif; }
-        body {
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            gap: 20px;
-            background: linear-gradient(135deg, #dde8ff, #ffe6f0);
-        }
-        .container {
-            display: flex;
-            gap: 20px;
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .wheel-wrapper { position: relative; }
-        canvas { border-radius: 50%; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spin Wheel Responsif</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-        .pointer {
-            position: absolute;
-            top: 50%;
-            right: -15px;
-            transform: translateY(-50%);
-            width: 0; height: 0;
-            border-top: 20px solid transparent;
-            border-bottom: 20px solid transparent;
-            border-left: 25px solid #0066ff;
-            filter: drop-shadow(0 0 4px rgba(0,0,0,0.3));
-        }
-        .hole {
-            position: absolute;
-            width: 90px; height: 90px;
-            background: white;
-            border-radius: 50%;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 0 3px #ffffffaa;
-        }
+    body {
+      margin: 0;
+      padding: 10px;
+      background: linear-gradient(135deg, #dde8ff, #ffe6f0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
 
-        .panel {
-            flex: 1;
-            background: #ffffffdd;
-            border-radius: 12px;
-            padding: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-        }
-        textarea {
-            width: 100%;
-            min-height: 160px;
-            resize: vertical;
-            padding: 8px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-        }
-        button {
-            padding: 9px 12px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: bold;
-            transition: background 0.2s, transform 0.1s;
-        }
-        #updateBtn { background: #6c757d; color: #fff; }
-        #spinBtn { background: #007bff; color: #fff; margin-left: 6px; }
-        #toggleSettings { background: #ffc107; color: #333; margin-top: 8px; }
+    .container {
+      display: flex;
+      gap: 15px;
+      width: 100%;
+      max-width: 1100px;
+    }
 
-        .winner-box {
-            margin-top: 12px;
-            padding: 10px;
-            border-radius: 8px;
-            background: #f4f8ff;
-            border: 1px solid #c8dcff;
-            font-size: 16px;
-        }
-        .winner-name { font-weight: bold; font-size: 20px; color: #0066ff; }
+    .left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        .settings {
-            margin-top: 12px;
-            padding: 10px;
-            border-radius: 10px;
-            background: #f8f9fa;
-            border: 1px solid #d0d4da;
-        }
-        .settings.hidden { display: none; }
+    .wheel-wrapper {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer; /* klik untuk spin */
+    }
 
-        .setting-row {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 8px;
-            flex-wrap: wrap;
-        }
-        label { font-size: 14px; min-width: 110px; }
+    canvas {
+      width: 100%;
+      height: auto;
+      max-width: 420px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      display: block;
+    }
 
-        @media (max-width: 800px) {
-            .container { flex-direction: column; align-items: center; }
-        }
-    </style>
+    .pointer {
+      position: absolute;
+      top: 50%;
+      right: -5px;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-left: 20px solid #0066ff;
+    }
+
+    .hole {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      background: white;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 0 3px #ffffffaa;
+      pointer-events: none;
+    }
+
+    .panel {
+      flex: 1;
+      background: #ffffffdd;
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      border-radius: 8px;
+      padding: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      resize: vertical;
+    }
+
+    button {
+      padding: 8px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 6px;
+    }
+
+    #updateBtn {
+      background: #6c757d;
+      color: #fff;
+      width: 100%;
+    }
+
+    #toggleSettings {
+      background: #ffc107;
+      color: #333;
+      width: 100%;
+    }
+
+    .settings {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 10px;
+      background: #f8f9fa;
+      border: 1px solid #ccd1d5;
+    }
+
+    .settings.hidden {
+      display: none;
+    }
+
+    .setting-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .winner-box {
+      margin-top: 10px;
+      padding: 8px;
+      background: #f4f8ff;
+      border: 1px solid #c8dcff;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .winner-name {
+      font-size: 20px;
+      font-weight: bold;
+      color: #0066ff;
+    }
+
+    input[type=range] {
+      flex: 1;
+    }
+
+    label {
+      font-size: 13px;
+      min-width: 100px;
+    }
+
+    /* label Hide di bawah roda, center */
+    .hide-toggle-center {
+      text-align: center;
+      width: 100%;
+      font-size: 14px;
+      padding-top: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      user-select: none;
+    }
+    .hide-toggle-center input {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+
+    /* kelas umum */
+    .hidden {
+      display: none !important;
+    }
+
+    /* mode fullscreen wheel (Hide aktif) */
+    body.hide-mode .panel {
+      display: none;
+    }
+
+    body.hide-mode .container {
+      max-width: 600px;
+      justify-content: center;
+    }
+
+    body.hide-mode {
+      padding-top: 10px;
+    }
+
+    /* MODAL POPUP PEMENANG */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal-content {
+      background: #ffffff;
+      padding: 15px;
+      border-radius: 12px;
+      max-width: 320px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .modal-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .modal-winner {
+      font-size: 22px;
+      font-weight: bold;
+      color: #0066ff;
+      margin: 8px 0 4px;
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .modal-buttons button {
+      flex: 1;
+      margin-top: 0;
+    }
+
+    .btn-keep {
+      background: #6c757d;
+      color: #fff;
+    }
+
+    .btn-remove {
+      background: #dc3545;
+      color: #fff;
+    }
+
+    /* 📱 RESPONSIVE */
+    @media (max-width: 900px) {
+      body {
+        align-items: flex-start;
+      }
+
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .panel {
+        width: 100%;
+      }
+
+      .wheel-wrapper {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      canvas {
+        max-width: 360px;
+      }
+
+      .pointer {
+        right: 50%;
+        transform: translate(150%, -50%);
+      }
+    }
+
+    @media (max-width: 480px) {
+      textarea {
+        font-size: 13px;
+      }
+
+      .winner-name {
+        font-size: 18px;
+      }
+
+      canvas {
+        max-width: 300px;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="wheel-wrapper">
-        <canvas id="wheel" width="450" height="450"></canvas>
-        <div class="pointer"></div>
-        <div class="hole"></div>
+  <div class="left">
+    <div class="wheel-wrapper" id="wheelWrapper">
+      <canvas id="wheel"></canvas>
+      <div class="pointer"></div>
+      <div class="hole"></div>
     </div>
 
-    <div class="panel">
-        <h2>Spin Wheel Nama</h2>
-        <textarea id="nameInput">Ali
+    <!-- Hide di bawah roda -->
+    <label class="hide-toggle-center">
+      <input type="checkbox" id="hideToggle">
+      Hide
+    </label>
+  </div>
+
+  <div class="panel">
+    <textarea id="nameInput">Ali
 Beatriz
 Hanna
 Diya
 Charles
 Eric</textarea>
 
-        <button id="updateBtn">Update Nama</button>
-        <button id="spinBtn">PUTAR</button>
-        <button id="toggleSettings">- </button>
+    <button id="updateBtn">Update</button>
+    <button id="toggleSettings">-</button>
 
-        <div id="settingsPanel" class="settings hidden">
-            <div class="setting-row">
-                <label>Kecepatan</label>
-                <input type="range" id="speedRange" min="1" max="5" value="3">
-                <span id="speedText">Sedang</span>
-            </div>
-
-            <div class="setting-row">
-                <label>Mode Pemenang</label>
-                <select id="modeSelect">
-                    <option value="random">Acak Otomatis</option>
-                    <option value="manual">Atur Manual</option>
-                </select>
-            </div>
-
-            <div class="setting-row" id="manualRow">
-                <label>Pemenang Manual</label>
-                <select id="winnerSelect"></select>
-            </div>
-        </div>
-
-        <div class="winner-box">
-            Pemenang: <span class="winner-name" id="winnerName">-</span>
-        </div>
+    <div id="settingsPanel" class="settings hidden">
+      <div class="setting-row">
+        <label>Kecepatan</label>
+        <input type="range" id="speedRange" min="1" max="5" value="3">
+        <span id="speedText">Sedang</span>
+      </div>
+      <div class="setting-row">
+        <label>Mode Pemenang</label>
+        <select id="modeSelect">
+          <option value="random">Acak</option>
+          <option value="manual">Manual</option>
+        </select>
+      </div>
+      <div class="setting-row" id="manualRow">
+        <label>Pemenang</label>
+        <select id="winnerSelect"></select>
+      </div>
     </div>
+
+    <div class="winner-box">
+      Pemenang: <span class="winner-name" id="winnerName">-</span>
+    </div>
+  </div>
+</div>
+
+<!-- POPUP PEMENANG -->
+<div id="winnerModal" class="modal hidden">
+  <div class="modal-content">
+    <div class="modal-title">🎉 Pemenang</div>
+    <div>Yang terpilih adalah:</div>
+    <div class="modal-winner" id="winnerModalName">-</div>
+    <div class="modal-buttons">
+      <button class="btn-keep" id="keepWinnerBtn">Biarkan saja</button>
+      <button class="btn-remove" id="removeWinnerBtn">Hapus dari daftar</button>
+    </div>
+  </div>
 </div>
 
 <script>
-const canvas = document.getElementById('wheel');
-const ctx = canvas.getContext('2d');
-const spinBtn = document.getElementById('spinBtn');
-const updateBtn = document.getElementById('updateBtn');
-const toggleSettings = document.getElementById('toggleSettings');
-const settingsPanel = document.getElementById('settingsPanel');
-const winnerLabel = document.getElementById('winnerName');
-const nameInput = document.getElementById('nameInput');
-const speedRange = document.getElementById('speedRange');
-const speedText = document.getElementById('speedText');
-const modeSelect = document.getElementById('modeSelect');
-const winnerSelect = document.getElementById('winnerSelect');
-const manualRow = document.getElementById('manualRow');
+  const canvas = document.getElementById("wheel");
+  const ctx = canvas.getContext("2d");
 
-let names = [];
-let currentRotation = 0;
-let isSpinning = false;
-const colors = ['#e74c3c','#3498db','#2ecc71','#f1c40f','#9b59b6','#e67e22'];
+  function resizeCanvas() {
+    const size = canvas.clientWidth;
+    canvas.width = size;
+    canvas.height = size;
+  }
 
-function updateSpeedLabel(){
+  window.addEventListener("resize", () => {
+    resizeCanvas();
+    drawWheel();
+  });
+
+  const wheelWrapper   = document.getElementById('wheelWrapper');
+  const updateBtn      = document.getElementById('updateBtn');
+  const toggleBtn      = document.getElementById('toggleSettings');
+  const settings       = document.getElementById('settingsPanel');
+  const nameInput      = document.getElementById('nameInput');
+  const speedRange     = document.getElementById('speedRange');
+  const speedText      = document.getElementById('speedText');
+  const modeSelect     = document.getElementById('modeSelect');
+  const winnerSelect   = document.getElementById('winnerSelect');
+  const winnerLabel    = document.getElementById('winnerName');
+  const hideToggle     = document.getElementById('hideToggle');
+
+  // Modal
+  const winnerModal      = document.getElementById('winnerModal');
+  const winnerModalName  = document.getElementById('winnerModalName');
+  const keepWinnerBtn    = document.getElementById('keepWinnerBtn');
+  const removeWinnerBtn  = document.getElementById('removeWinnerBtn');
+
+  let names = [];
+  let currentRotation = 0;
+  let isSpinning = false;
+  let lastWinnerIndex = null;
+
+  const colors = ['#e74c3c', '#3498db', '#2ecc71', '#f1c40f', '#9b59b6', '#e67e22'];
+
+  function updateSpeed() {
     const s = +speedRange.value;
-    speedText.textContent = ['Sangat Pelan','Pelan','Sedang','Cepat','Sangat Cepat'][s-1];
-}
-function parseNames(){
-    names = nameInput.value.split('\n').map(a=>a.trim()).filter(a=>a);
-    winnerSelect.innerHTML='';
-    names.forEach((n,i)=>{
-        const o=document.createElement('option');
-        o.value=i;o.textContent=n;winnerSelect.appendChild(o);
+    speedText.textContent = ['Sangat Pelan', 'Pelan', 'Sedang', 'Cepat', 'Sangat Cepat'][s - 1];
+  }
+
+  function parseNames() {
+    names = nameInput.value
+      .split("\n")
+      .map(a => a.trim())
+      .filter(a => a);
+
+    winnerSelect.innerHTML = '';
+    names.forEach((n, i) => {
+      let o = document.createElement("option");
+      o.value = i;
+      o.textContent = n;
+      winnerSelect.appendChild(o);
     });
-}
-function drawWheel(){
-    const w=canvas.width,h=canvas.height,cx=w/2,cy=h/2;
-    const r=Math.min(cx,cy)-10;
-    ctx.clearRect(0,0,w,h);
-    if(!names.length) return;
-    const slice=2*Math.PI/names.length;
-    ctx.save();ctx.translate(cx,cy);ctx.rotate(currentRotation);
-    names.forEach((n,i)=>{
-        const a=i*slice;
-        ctx.beginPath();
-        ctx.moveTo(0,0);
-        ctx.arc(0,0,r,a,a+slice);
-        ctx.fillStyle=colors[i%colors.length];ctx.fill();
-        ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();
-        ctx.save();
-        ctx.rotate(a+slice/2);
-        ctx.translate(r*0.65,0);
-        ctx.rotate(Math.PI/2);
-        ctx.fillStyle='#fff';
-        ctx.font='bold 20px Arial';
-        ctx.textAlign='center';
-        ctx.fillText(n,0,0);
-        ctx.restore();
-    });
-    ctx.restore();
-}
-function ease(t){return 1-Math.pow(1-t,4);}
-function spinToIndex(index,speedLevel){
-    if(isSpinning) return;
-    isSpinning=true;
-    const slice=2*Math.PI/names.length;
-    const targetAtTop = -Math.PI/2 - (index*slice + slice/2);
-    const baseD=3800, baseS=4;
-    const f=speedLevel;
-    const dur = baseD - (f-3)*600;
-    const extra = (baseS + (f-3)*1.2) * 2*Math.PI;
-    const twoPI = 2*Math.PI;
-    const curr=((currentRotation%twoPI)+twoPI)%twoPI;
-    const delta = targetAtTop - curr;
-    const final = currentRotation + extra + delta;
-    const start=currentRotation;
-    const diff=final-start;
-    const st=performance.now();
-    function anim(now){
-        const t=Math.min(1,(now-st)/dur);
-        currentRotation=start+diff*ease(t);
-        drawWheel();
-        if(t<1) requestAnimationFrame(anim);
-        else{
-            isSpinning=false;
-            winnerLabel.textContent=names[index];
-            currentRotation=((currentRotation%twoPI)+twoPI)%twoPI;
-        }
+
+    if (!names.length) {
+      winnerLabel.textContent = '-';
     }
+  }
+
+  function drawWheel() {
+    const w = canvas.width, h = canvas.height, cx = w / 2, cy = h / 2;
+    const r = cx - 5;
+    ctx.clearRect(0, 0, w, h);
+    if (!names.length) return;
+
+    const slice = 2 * Math.PI / names.length;
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(currentRotation);
+
+    names.forEach((n, i) => {
+      const a = i * slice;
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.arc(0, 0, r, a, a + slice);
+      ctx.fillStyle = colors[i % colors.length];
+      ctx.fill();
+      ctx.strokeStyle = "#fff";
+      ctx.stroke();
+
+      ctx.save();
+      ctx.rotate(a + slice / 2);
+      ctx.translate(r * 0.65, 0);
+      ctx.rotate(Math.PI / 2);
+      ctx.fillStyle = "#fff";
+      ctx.font = "bold " + (w * 0.045) + "px Arial";
+      ctx.textAlign = "center";
+      ctx.fillText(n, 0, 0);
+      ctx.restore();
+    });
+
+    ctx.restore();
+  }
+
+  function ease(t) {
+    return 1 - Math.pow(1 - t, 4);
+  }
+
+  function showWinnerModal(name, index) {
+    winnerModalName.textContent = name;
+    lastWinnerIndex = index;
+    winnerModal.classList.remove('hidden');
+  }
+
+  function hideWinnerModal() {
+    winnerModal.classList.add('hidden');
+  }
+
+  function spinToIndex(index, speed) {
+    if (isSpinning) return;
+    isSpinning = true;
+
+    const slice = 2 * Math.PI / names.length;
+    const target = -Math.PI / 2 - (index * slice + slice / 2);
+
+    const baseD = 3800, baseS = 4;
+    const f = speed;
+    const dur = baseD - (f - 3) * 600;
+    const extra = (baseS + (f - 3) * 1.2) * 2 * Math.PI;
+    const twoPI = 2 * Math.PI;
+    const curr = ((currentRotation % twoPI) + twoPI) % twoPI;
+    const delta = target - curr;
+    const final = currentRotation + extra + delta;
+    const start = currentRotation;
+    const diff = final - start;
+    const st = performance.now();
+
+    function anim(t) {
+      const time = (t - st) / dur;
+      const k = Math.min(1, time);
+      currentRotation = start + diff * ease(k);
+      drawWheel();
+      if (k < 1) {
+        requestAnimationFrame(anim);
+      } else {
+        isSpinning = false;
+        winnerLabel.textContent = names[index];
+        currentRotation = ((currentRotation % twoPI) + twoPI) % twoPI;
+        showWinnerModal(names[index], index);
+      }
+    }
+
     requestAnimationFrame(anim);
-}
-function spin(){
-    if(!names.length || isSpinning) return;
-    const speed=+speedRange.value;
-    let idx = modeSelect.value==="manual"
-        ? +winnerSelect.value
-        : Math.floor(Math.random()*names.length);
-    spinToIndex(idx,speed);
-}
+  }
 
-spinBtn.onclick = spin;
-updateBtn.onclick = ()=>{parseNames();drawWheel()};
-toggleSettings.onclick = ()=>settingsPanel.classList.toggle('hidden');
-speedRange.oninput = updateSpeedLabel;
-parseNames();drawWheel();updateSpeedLabel();
+  function spin() {
+    if (!names.length || isSpinning) return;
+    const speed = +speedRange.value;
+    let idx = modeSelect.value === "manual"
+      ? +winnerSelect.value
+      : Math.floor(Math.random() * names.length);
+
+    spinToIndex(idx, speed);
+  }
+
+  // event
+  wheelWrapper.onclick = spin; // klik roda untuk putar
+
+  updateBtn.onclick = () => {
+    parseNames();
+    resizeCanvas();
+    drawWheel();
+  };
+
+  toggleBtn.onclick = () => {
+    settings.classList.toggle("hidden");
+  };
+
+  speedRange.oninput = updateSpeed;
+
+  keepWinnerBtn.onclick = () => {
+    hideWinnerModal();
+  };
+
+  removeWinnerBtn.onclick = () => {
+    if (lastWinnerIndex == null || lastWinnerIndex < 0 || lastWinnerIndex >= names.length) {
+      hideWinnerModal();
+      return;
+    }
+    // hapus pemenang dari daftar
+    names.splice(lastWinnerIndex, 1);
+    nameInput.value = names.join("\n");
+    parseNames();
+    resizeCanvas();
+    drawWheel();
+    winnerLabel.textContent = names.length ? '-' : '-';
+    lastWinnerIndex = null;
+    hideWinnerModal();
+  };
+
+  winnerModal.addEventListener('click', (e) => {
+    if (e.target === winnerModal) hideWinnerModal();
+  });
+
+  hideToggle.addEventListener('change', () => {
+    document.body.classList.toggle('hide-mode', hideToggle.checked);
+  });
+
+  // inisialisasi awal
+  resizeCanvas();
+  parseNames();
+  drawWheel();
+  updateSpeed();
 </script>
-
 </body>
 </html>
