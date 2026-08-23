@@ -1,577 +1,645 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spin Wheel Responsif</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Habib & Maisa | Our Special Day</title>
+<meta name="description" content="Undangan Pernikahan Habib & Maisa - 3 Oktober 2026">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Wedding of May & Habi">
+<meta property="og:description" content="Dengan hormat kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.">
+<meta property="og:image" content="http://habib&maisa.ege.my.id/cv.jpeg">
+<meta property="og:url" content="http://habib&maisa.ege.my.id/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Wedding of May & Habi">
+<meta name="twitter:description" content="Undangan Pernikahan May & Habi">
+<meta name="twitter:image" content="http://habib&maisa.ege.my.id/cv.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    body {
-      margin: 0;
-      padding: 10px;
-      background: linear-gradient(135deg, #dde8ff, #ffe6f0);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:#f7eef1;color:#4d3b42;overflow-x:hidden}
+.hero,.page-section{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;padding:70px 20px;background-position:center;background-size:cover;background-repeat:no-repeat}
+.hero{background-image:linear-gradient(rgba(45,25,33,.45),rgba(45,25,33,.58)),url("cover.jpg");text-align:center;color:#fff}
+.page-section::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(74,39,52,.32),rgba(74,39,52,.48));z-index:0}
+.bg1{background-image:url("bg1.jpg")}
+.bg2{background-image:url("bg2.jpg")}
+.bg3{background-image:url("bg3.jpg")}
+.bg4{background-image:url("bg4.jpg")}
+.bg5{background-image:url("bg5.jpg")}
+.bg6{background-image:url("bg6.jpg")}
+.bg7{background-image:url("bg7.jpg")}
+.bg8{background-image:url("bg8.jpg")}
+.bg9{background-image:url("bg9.jpg")}
+.bg10{background-image:url("bg10.jpg")}
+.panel{position:relative;z-index:1;width:min(900px,100%);padding:42px 32px;border-radius:28px;background:rgba(92,51,67,.45);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(8px);color:#fff;text-align:center;box-shadow:0 24px 60px rgba(35,16,24,.22)}
+.cover{width:min(680px,100%);padding:48px 28px;border-radius:30px;background:rgba(83,43,59,.38);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(9px)}
+.kicker{font-size:12px;letter-spacing:.32em;text-transform:uppercase;margin-bottom:14px;color:#f5dce4}
+h1,h2,h3{font-family:'Cormorant Garamond',serif}
+.hero h1{font-size:clamp(60px,11vw,100px);line-height:.9;margin:16px 0}
+.hero .date{font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:28px}
+.guest{background:rgba(255,248,246,.92);color:#654554;border-radius:20px;padding:20px;margin:28px auto;max-width:440px}
+.guest h2{font-size:31px}
+.btn{display:inline-block;border:0;border-radius:50px;padding:15px 32px;background:#8e5368;color:#fff;text-decoration:none;font:500 15px 'Poppins',sans-serif;cursor:pointer;box-shadow:0 10px 25px rgba(65,27,42,.28)}
+.panel h2{font-size:clamp(42px,7vw,65px);margin-bottom:18px}
+.panel h3{font-size:30px;margin:22px 0 8px}
+.panel p{line-height:1.9;margin:10px auto;max-width:720px}
+.names{display:grid;grid-template-columns:1fr 80px 1fr;gap:15px;align-items:center;margin-top:35px}
+.person img{width:100%;max-width:280px;aspect-ratio:4/5;object-fit:cover;border-radius:140px 140px 24px 24px;border:2px solid rgba(255,255,255,.3);margin-bottom:18px}
+.person h3{font-size:36px}
+.amp{font-family:'Cormorant Garamond',serif;font-size:55px}
+.event-date strong{display:block;font-family:'Cormorant Garamond',serif;font-size:90px;line-height:.9}
+.event-date span{font-size:25px;font-family:'Cormorant Garamond',serif}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:30px auto;max-width:680px}
+.timebox{padding:20px 8px;border-radius:18px;background:rgba(255,247,246,.9);color:#71485a}
+.timebox b{display:block;font-family:'Cormorant Garamond',serif;font-size:42px}
+.gift-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:25px}
+.gift{background:rgba(255,248,246,.9);color:#674452;padding:25px;border-radius:20px}
+.gift h3{margin:0 0 8px}.gift .rekening{font-weight:600;font-size:20px;letter-spacing:.05em}
+.qris{max-width:240px;width:100%;border-radius:18px;margin-top:24px}
+.story{text-align:left;max-width:740px;margin:auto}
+.story h3{text-align:center;font-size:38px;margin-top:36px}
+.story p{text-align:center}
+.story blockquote{font-family:'Cormorant Garamond',serif;font-size:26px;font-style:italic;text-align:center;padding:22px;margin:25px 0;border-top:1px solid rgba(255,255,255,.3);border-bottom:1px solid rgba(255,255,255,.3)}
+.story hr{width:70px;margin:42px auto;border:0;border-top:1px solid rgba(255,255,255,.35)}
+.arabic{font-family:serif;font-size:clamp(28px,5vw,44px);line-height:1.8;direction:rtl}
+.flowers{position:fixed;inset:0;pointer-events:none;z-index:20;overflow:hidden}
+.flowers span{position:absolute;top:-10%;animation:fall linear infinite;filter:drop-shadow(0 3px 5px rgba(60,25,40,.15))}
+@keyframes fall{to{transform:translateY(120vh) rotate(360deg);opacity:.15}}
+.fade{opacity:0;transform:translateY(45px)}
+.fade.show{animation:bounceSlow 2.6s cubic-bezier(.22,.8,.3,1) forwards}
+@keyframes bounceSlow{0%{opacity:0;transform:translateY(55px) scale(.94)}48%{opacity:1;transform:translateY(-12px) scale(1.02)}68%{transform:translateY(6px)}84%{transform:translateY(-3px)}100%{opacity:1;transform:none}}
+#content{display:none}
+@media(max-width:700px){
+ .names{grid-template-columns:1fr}.amp{font-size:40px}.countdown{grid-template-columns:repeat(2,1fr)}
+ .gift-grid{grid-template-columns:1fr}.panel{padding:32px 20px}.hero h1{font-size:64px}
+}
 
-    .container {
-      display: flex;
-      gap: 15px;
-      width: 100%;
-      max-width: 1100px;
-    }
+/* ===== TYPOGRAPHY UPGRADE ===== */
+body{
+  font-family:'Poppins',sans-serif;
+  letter-spacing:.01em;
+}
 
-    .left {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+h1,h2,h3{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:600;
+}
 
-    .wheel-wrapper {
-      position: relative;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer; /* klik untuk spin */
-    }
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:600;
+  letter-spacing:.01em;
+}
 
-    canvas {
-      width: 100%;
-      height: auto;
-      max-width: 420px;
-      aspect-ratio: 1 / 1;
-      border-radius: 50%;
-      display: block;
-    }
+.kicker{
+  font-family:'Poppins',sans-serif;
+  font-weight:500;
+  letter-spacing:.34em;
+}
 
-    .pointer {
-      position: absolute;
-      top: 50%;
-      right: -5px;
-      transform: translateY(-50%);
-      width: 0;
-      height: 0;
-      border-top: 15px solid transparent;
-      border-bottom: 15px solid transparent;
-      border-left: 20px solid #0066ff;
-    }
+.hero .date,
+.event-date span,
+.person h3,
+.amp{
+  font-family:'Playfair Display',serif;
+}
 
-    .hole {
-      position: absolute;
-      width: 70px;
-      height: 70px;
-      background: white;
-      border-radius: 50%;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      box-shadow: 0 0 0 3px #ffffffaa;
-      pointer-events: none;
-    }
+.guest h2{
+  font-family:'Playfair Display',serif;
+  font-weight:600;
+}
 
-    .panel {
-      flex: 1;
-      background: #ffffffdd;
-      border-radius: 12px;
-      padding: 10px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
-    }
+.panel h2{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:600;
+  letter-spacing:.01em;
+}
 
-    textarea {
-      width: 100%;
-      min-height: 120px;
-      border-radius: 8px;
-      padding: 6px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-      resize: vertical;
-    }
+.panel h3{
+  font-family:'Playfair Display',serif;
+  font-weight:600;
+}
 
-    button {
-      padding: 8px;
-      border: none;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 6px;
-    }
+.event-date strong{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:700;
+}
 
-    #updateBtn {
-      background: #6c757d;
-      color: #fff;
-      width: 100%;
-    }
+.timebox b{
+  font-family:'Playfair Display',serif;
+  font-weight:600;
+}
 
-    #toggleSettings {
-      background: #ffc107;
-      color: #333;
-      width: 100%;
-    }
+.story h3{
+  font-family:'Playfair Display',serif;
+  font-weight:600;
+}
 
-    .settings {
-      margin-top: 10px;
-      padding: 10px;
-      border-radius: 10px;
-      background: #f8f9fa;
-      border: 1px solid #ccd1d5;
-    }
+.story blockquote{
+  font-family:'Playfair Display',serif;
+  font-weight:500;
+  line-height:1.65;
+}
 
-    .settings.hidden {
-      display: none;
-    }
+.story p{
+  font-family:'Poppins',sans-serif;
+}
 
-    .setting-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 8px;
-      flex-wrap: wrap;
-    }
+.arabic{
+  font-family:'Amiri','Times New Roman',serif;
+  letter-spacing:0;
+}
 
-    .winner-box {
-      margin-top: 10px;
-      padding: 8px;
-      background: #f4f8ff;
-      border: 1px solid #c8dcff;
-      border-radius: 8px;
-      font-size: 15px;
-    }
+.story-signature,
+.story strong{
+  font-family:'Playfair Display',serif;
+}
 
-    .winner-name {
-      font-size: 20px;
-      font-weight: bold;
-      color: #0066ff;
-    }
+@media(max-width:700px){
+  .panel h2{font-size:42px;}
+  .panel h3{font-size:27px;}
+  .story h3{font-size:32px;}
+}
 
-    input[type=range] {
-      flex: 1;
-    }
 
-    label {
-      font-size: 13px;
-      min-width: 100px;
-    }
+/* ===== FONT & OPEN INVITATION POLISH ===== */
 
-    /* label Hide di bawah roda, center */
-    .hide-toggle-center {
-      text-align: center;
-      width: 100%;
-      font-size: 14px;
-      padding-top: 8px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 6px;
-      user-select: none;
-    }
-    .hide-toggle-center input {
-      transform: scale(1.2);
-      cursor: pointer;
-    }
+.couple-name{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:0;
+  font-family:'Great Vibes',cursive !important;
+  font-size:clamp(72px,13vw,118px) !important;
+  font-weight:400 !important;
+  line-height:.78 !important;
+  letter-spacing:.015em !important;
+  margin:26px 0 20px !important;
+  text-shadow:0 14px 36px rgba(47,18,30,.46);
+}
 
-    /* kelas umum */
-    .hidden {
-      display: none !important;
-    }
+.couple-name span{
+  display:block;
+  font-family:'Cormorant Garamond',serif;
+  font-size:.44em;
+  line-height:1.15;
+  margin:7px 0 5px;
+  font-style:italic;
+  color:#f4dce4;
+}
 
-    /* mode fullscreen wheel (Hide aktif) */
-    body.hide-mode .panel {
-      display: none;
-    }
+.hero .date{
+  font-family:'Playfair Display',serif !important;
+  font-style:italic;
+  font-weight:500;
+  letter-spacing:.035em;
+}
 
-    body.hide-mode .container {
-      max-width: 600px;
-      justify-content: center;
-    }
+.guest small{
+  font-family:'Poppins',sans-serif;
+  letter-spacing:.08em;
+}
 
-    body.hide-mode {
-      padding-top: 10px;
-    }
+.guest h2{
+  font-family:'Cormorant Garamond',serif !important;
+  font-size:34px !important;
+  font-weight:700 !important;
+  letter-spacing:.01em;
+}
 
-    /* MODAL POPUP PEMENANG */
-    .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
+.panel h2{
+  font-family:'Cormorant Garamond',serif !important;
+  font-weight:600 !important;
+  line-height:1.05;
+}
 
-    .modal-content {
-      background: #ffffff;
-      padding: 15px;
-      border-radius: 12px;
-      max-width: 320px;
-      width: 90%;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    }
+.panel h3,
+.person h3{
+  font-family:'Playfair Display',serif !important;
+  font-weight:600 !important;
+}
 
-    .modal-title {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
+.story h3{
+  font-family:'Playfair Display',serif !important;
+  font-weight:600 !important;
+}
 
-    .modal-winner {
-      font-size: 22px;
-      font-weight: bold;
-      color: #0066ff;
-      margin: 8px 0 4px;
-    }
+.story blockquote{
+  font-family:'Cormorant Garamond',serif !important;
+  font-size:29px !important;
+  font-weight:500 !important;
+  line-height:1.55 !important;
+}
 
-    .modal-buttons {
-      display: flex;
-      gap: 8px;
-      margin-top: 12px;
-      flex-wrap: wrap;
-    }
+.arabic{
+  font-family:'Amiri',serif !important;
+  font-weight:700;
+}
 
-    .modal-buttons button {
-      flex: 1;
-      margin-top: 0;
-    }
+.closing-name{
+  font-family:'Great Vibes',cursive !important;
+  font-size:clamp(54px,9vw,82px) !important;
+  font-weight:400 !important;
+  margin-top:22px;
+}
 
-    .btn-keep {
-      background: #6c757d;
-      color: #fff;
-    }
+/* opening state */
+body.invite-open .hero{
+  min-height:100svh;
+}
 
-    .btn-remove {
-      background: #dc3545;
-      color: #fff;
-    }
+#content{
+  display:none;
+}
 
-    /* 📱 RESPONSIVE */
-    @media (max-width: 900px) {
-      body {
-        align-items: flex-start;
-      }
+#content.opened{
+  display:block;
+  animation:contentReveal .7s ease both;
+}
 
-      .container {
-        flex-direction: column;
-        align-items: center;
-      }
+@keyframes contentReveal{
+  from{opacity:0}
+  to{opacity:1}
+}
 
-      .panel {
-        width: 100%;
-      }
+/* first panel should never stay invisible after opening */
+#content.opened .page-section:first-child .panel{
+  opacity:1;
+}
 
-      .wheel-wrapper {
-        width: 100%;
-        margin-bottom: 10px;
-      }
+/* Slightly more elegant button */
+.btn{
+  font-family:'Poppins',sans-serif !important;
+  font-weight:500 !important;
+  letter-spacing:.04em;
+  transition:transform .35s ease, box-shadow .35s ease, background .35s ease;
+}
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 32px rgba(65,27,42,.34);
+}
 
-      canvas {
-        max-width: 360px;
-      }
+@media(max-width:700px){
+  .couple-name{
+    font-size:76px !important;
+    line-height:.82 !important;
+  }
+  .guest h2{
+    font-size:30px !important;
+  }
+  .story blockquote{
+    font-size:25px !important;
+  }
+}
 
-      .pointer {
-        right: 50%;
-        transform: translate(150%, -50%);
-      }
-    }
 
-    @media (max-width: 480px) {
-      textarea {
-        font-size: 13px;
-      }
+/* ===== KISAH KAMI FINAL ===== */
+.story{
+  max-width:760px;
+}
+.story p{
+  font-family:'Poppins',sans-serif;
+  font-size:15.5px;
+  line-height:2;
+  margin:0 auto 18px;
+  text-align:center;
+}
+.story blockquote{
+  margin:28px auto;
+  padding:22px 24px;
+  max-width:650px;
+  font-family:'Cormorant Garamond',serif !important;
+  font-size:28px !important;
+  font-style:italic;
+  line-height:1.6 !important;
+  color:#fff8f4;
+  border-top:1px solid rgba(255,255,255,.32);
+  border-bottom:1px solid rgba(255,255,255,.32);
+}
+.story-signature{
+  font-family:'Great Vibes',cursive !important;
+  font-size:38px !important;
+  line-height:1.3 !important;
+  margin-top:28px !important;
+}
 
-      .winner-name {
-        font-size: 18px;
-      }
 
-      canvas {
-        max-width: 300px;
-      }
-    }
-  </style>
+/* ===== FINAL STORY SPACING ===== */
+.story-signature{
+  margin-bottom:8px !important;
+}
+
+
+/* ===== GUEST NOTE POLISH ===== */
+.guest p{
+  font-size:12px !important;
+  line-height:1.6 !important;
+  font-weight:400 !important;
+  color:#7b626b !important;
+  max-width:340px;
+  margin:8px auto 0 !important;
+}
+
+
+/* ===== GALERI FOTO ===== */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  margin-top:28px;
+}
+
+.gallery-grid img{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border-radius:22px;
+  border:1px solid rgba(150, 139, 139, 0.24);
+  box-shadow:0 16px 36px rgba(40,16,25,.25);
+  transition:transform .45s ease, box-shadow .45s ease;
+}
+
+.gallery-grid img:hover{
+  transform:scale(1.025);
+  box-shadow:0 20px 44px rgba(40,16,25,.32);
+}
+
+@media(max-width:700px){
+  .gallery-grid{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+  .gallery-grid img{
+    border-radius:16px;
+  }
+}
+
+</style>
 </head>
 <body>
 
-<div class="container">
-  <div class="left">
-    <div class="wheel-wrapper" id="wheelWrapper">
-      <canvas id="wheel"></canvas>
-      <div class="pointer"></div>
-      <div class="hole"></div>
+<div class="flowers" id="flowers"></div>
+
+<section class="hero">
+  <div class="cover fade show">
+    <div class="kicker">Our Special Day</div>
+    <h1 class="couple-name">Habib<span>&amp;</span>Maisa</h1>
+    <div class="date">3 Oktober 2026</div>
+
+    <div class="guest">
+      <small>Kepada Yth.</small>
+      <h2 id="namaTamu">Tamu Undangan</h2>
+      <p>Mohon maaf apabila ada kesalahan dalam penulisan nama dan gelar.</p>
     </div>
 
-    <!-- Hide di bawah roda -->
-    <label class="hide-toggle-center">
-      <input type="checkbox" id="hideToggle">
-      Hide
-    </label>
+    <button class="btn" onclick="openInvite()">Buka Undangan</button>
+    <audio id="music" loop><source src="lagu.mp3" type="audio/mpeg"></audio>
   </div>
+</section>
 
-  <div class="panel">
-    <textarea id="nameInput">Ali
-Beatriz
-Hanna
-Diya
-Charles
-Eric</textarea>
+<div id="content">
 
-    <button id="updateBtn">Update</button>
-    <button id="toggleSettings">-</button>
+<section class="page-section bg1">
+ <div class="panel fade">
+  <div class="arabic">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+  <h3>Assalamu’alaikum Warahmatullahi Wabarakatuh</h3>
+  <p>Dengan memohon rahmat dan ridha Allah SWT, serta dengan penuh rasa syukur atas segala ketetapan-Nya, kami bermaksud menyelenggarakan pernikahan kami:</p>
+ </div>
+</section>
 
-    <div id="settingsPanel" class="settings hidden">
-      <div class="setting-row">
-        <label>Kecepatan</label>
-        <input type="range" id="speedRange" min="1" max="5" value="3">
-        <span id="speedText">Sedang</span>
-      </div>
-      <div class="setting-row">
-        <label>Mode Pemenang</label>
-        <select id="modeSelect">
-          <option value="random">Acak</option>
-          <option value="manual">Manual</option>
-        </select>
-      </div>
-      <div class="setting-row" id="manualRow">
-        <label>Pemenang</label>
-        <select id="winnerSelect"></select>
-      </div>
-    </div>
-
-    <div class="winner-box">
-      Pemenang: <span class="winner-name" id="winnerName">-</span>
-    </div>
+<section class="page-section bg2">
+ <div class="panel fade">
+  <div class="kicker">The Bride &amp; Groom</div>
+  <h2>Mempelai</h2>
+  <div class="names">
+   <div class="person">
+    <img src="tp1.jpg" alt="Muhammad Habibullah">
+    <h3>Muhammad Habibullah</h3>
+    <p>Putra dari<br><strong>Bapak M. Jahuri</strong><br>&amp;<br><strong>Ibu Halimah</strong></p>
+   </div>
+   <div class="amp">&amp;</div>
+   <div class="person">
+    <img src="tp2.jpg" alt="Siti Maisarah">
+    <h3>Siti Maisarah</h3>
+    <p>Putri dari<br><strong>Bapak Hasan Rusdi</strong><br>&amp;<br><strong>Ibu Noor Hasanah</strong></p>
+   </div>
   </div>
-</div>
+ </div>
+</section>
 
-<!-- POPUP PEMENANG -->
-<div id="winnerModal" class="modal hidden">
-  <div class="modal-content">
-    <div class="modal-title">🎉 Pemenang</div>
-    <div>Yang terpilih adalah:</div>
-    <div class="modal-winner" id="winnerModalName">-</div>
-    <div class="modal-buttons">
-      <button class="btn-keep" id="keepWinnerBtn">Biarkan saja</button>
-      <button class="btn-remove" id="removeWinnerBtn">Hapus dari daftar</button>
-    </div>
+<section class="page-section bg3">
+ <div class="panel fade">
+  <div class="kicker">Save The Date</div>
+  <h2>Hari Bahagia Kami</h2>
+  <p>Insya Allah resepsi pernikahan kami akan dilaksanakan pada:</p>
+  <div class="event-date"><span>Sabtu</span><strong>3</strong>
+    <h3><span>Oktober 2026</span></h3></div>
+  <h3>Pukul</h3><p><strong>09.00 WITA – Selesai</strong></p>
+  <h3>Bertempat di</h3>
+  <p><strong>Jl. Transmigrasi Sebamban VI Block C<br>Gang Al Karomah RT 03 Dusun 01<br>Desa Waringin Tunggal<br>Kec. Kuranji, Kab. Tanah Bumbu<br>Kalimantan Selatan</strong></p>
+  <a class="btn" target="_blank" href="https://google.com/maps?q=-3.4685020446777344,115.7005386352539&z=17&hl=id">Lihat Lokasi</a>
+ </div>
+</section>
+
+<section class="page-section bg4">
+ <div class="panel fade">
+  <h2>Menuju Hari Bahagia</h2>
+  <p>Tak terasa hari yang kami nantikan semakin dekat.</p>
+  <p>Kami berharap setiap proses menuju hari tersebut diberikan kemudahan dan keberkahan oleh Allah SWT.</p>
+  <p>Semoga pernikahan ini menjadi awal dari kehidupan yang dipenuhi ketenangan, kasih sayang, serta kebahagiaan dalam setiap langkah yang kami jalani bersama.</p>
+  <h3>Countdown</h3>
+  <div class="countdown">
+   <div class="timebox"><b id="d">0</b>Hari</div>
+   <div class="timebox"><b id="h">0</b>Jam</div>
+   <div class="timebox"><b id="m">0</b>Menit</div>
+   <div class="timebox"><b id="s">0</b>Detik</div>
   </div>
+ </div>
+</section>
+
+<section class="page-section bg5">
+ <div class="panel fade">
+  <h2>Kehadiran Anda Sangat Berarti</h2>
+  <p>Bukan tentang seberapa meriah sebuah perayaan.</p>
+  <p>Bagi kami, kebahagiaan terbesar adalah dapat berbagi hari istimewa ini bersama keluarga, sahabat, dan orang-orang yang menjadi bagian dari perjalanan hidup kami.</p>
+  <p>Kehadiran serta doa restu Bapak/Ibu/Saudara/i akan menjadi kebahagiaan dan kehormatan yang sangat berarti bagi kami.</p>
+ </div>
+</section>
+
+
+<section class="page-section bg5">
+ <div class="panel fade">
+  <div class="kicker">Our Moments</div>
+  <h2>Galeri</h2>
+  <p>Beberapa potret perjalanan yang menjadi bagian dari kisah kami.</p>
+
+  <div class="gallery-grid">
+   <img src="foto1.jpg" alt="Galeri Habib dan Maisa 1">
+   <img src="foto2.jpg" alt="Galeri Habib dan Maisa 2">
+   <img src="foto3.jpg" alt="Galeri Habib dan Maisa 3">
+   <img src="foto4.jpg" alt="Galeri Habib dan Maisa 4">
+  </div>
+ </div>
+</section>
+
+
+<section class="page-section bg6">
+ <div class="panel fade">
+  <h2>Wedding Gift</h2>
+  <p>Kehadiran dan doa yang tulus merupakan hadiah terindah bagi kami.</p>
+  <p>Namun apabila Bapak/Ibu/Saudara/i ingin memberikan tanda kasih, dapat disampaikan melalui:</p>
+  <div class="gift-grid">
+   <div class="gift"><h3>SeaBank</h3><div class="rekening" id="rek1">901596310405</div><p>a.n. <strong>Siti Maisarah</strong></p><button class="btn" onclick="copyRek('rek1',this)">Salin Rekening</button></div>
+   <div class="gift"><h3>BNI</h3><div class="rekening" id="rek2">1946903374</div><p>a.n. <strong>Muhammad Habibullah</strong></p><button class="btn" onclick="copyRek('rek2',this)">Salin Rekening</button></div>
+  </div>
+  <h3>QRIS</h3><p>QRIS tersedia pada undangan.</p>
+  <img class="qris" src="qris.png" alt="QRIS">
+ </div>
+</section>
+
+
+<section class="page-section bg7">
+ <div class="panel fade">
+  <div class="kicker">Our Story</div>
+  <h2>Kisah Kami</h2>
+  <div class="story">
+   <p>Setiap kisah memiliki awal yang sederhana, begitu pula kisah kami.</p>
+
+   <p>Pertemuan kami bermula pada tahun <strong>2020</strong>. Saat itu, aku masih duduk di bangku sekolah, sementara kamu telah lebih dulu menapaki dunia kerja. Perbedaan usia dan fase kehidupan membuatmu ragu untuk menerima perasaanku. Bagimu, aku masih terlalu muda, masih “bocil”, dan belum waktunya memulai sebuah hubungan yang serius.</p>
+
+   <p>Namun, di dalam hati, aku yakin bahwa waktu akan menjawab semuanya. Aku hanya berkata:</p>
+
+   <blockquote>“Tunggu saja lima tahun lagi. Aku juga akan tumbuh dewasa.”</blockquote>
+
+   <p>Sebuah kalimat sederhana yang saat itu mungkin terdengar seperti candaan, tetapi menjadi harapan yang terus kupegang.</p>
+
+   <p>Hari demi hari berlalu. Kami menjalani kehidupan masing-masing, bertumbuh, belajar, dan menjadi pribadi yang lebih dewasa. Tanpa terasa, waktu membawa kami kembali pada titik di mana keyakinan itu mulai menjadi kenyataan.</p>
+
+   <p>Pada <strong>1 Desember</strong>, kami memutuskan untuk saling berkomitmen. Sejak hari itu, kami belajar bahwa mencintai bukan hanya tentang rasa, tetapi juga tentang saling menjaga, saling mendukung, dan bertumbuh bersama dalam setiap proses kehidupan.</p>
+
+   <p>Dengan doa dan restu dari kedua keluarga, perjalanan kami berlanjut hingga <strong>1 Juli</strong>, hari di mana kami melangsungkan pertunangan. Momen itu menjadi langkah yang semakin menguatkan niat kami untuk membangun masa depan bersama.</p>
+
+   <p>Kini, dengan penuh rasa syukur atas segala penyertaan Tuhan, pada <strong>27 September</strong> kami mengikat janji suci pernikahan. Sebuah awal baru bagi perjalanan kami sebagai pasangan suami dan istri.</p>
+
+   <p>Perjalanan ini mengajarkan kami bahwa cinta bukan tentang siapa yang datang pada waktu yang tepat, melainkan tentang dua orang yang bersedia bertumbuh hingga akhirnya dipertemukan pada waktu terbaik menurut kehendak-Nya.</p>
+
+   <p>Dari sebuah kalimat sederhana:</p>
+
+   <blockquote>“Tunggu saja lima tahun lagi, aku juga akan tumbuh dewasa,”</blockquote>
+
+   <p>lahirlah sebuah kisah yang hari ini menjadi kenyataan.</p>
+
+   <p>Dengan penuh sukacita, kami mengundang Bapak/Ibu/Saudara/i untuk turut berbahagia dan memberikan doa restu pada <strong>resepsi pernikahan kami yang akan diselenggarakan pada tanggal 3 Oktober</strong> di kediaman kami.</p>
+
+   <p>Kehadiran serta doa restu dari Anda akan menjadi kebahagiaan dan kehormatan yang tak ternilai bagi kami.</p>
+
+   <p class="story-signature">Sampai jumpa di hari bahagia kami.</p>
+  </div>
+ </div>
+</section>
+
+
+<section class="page-section bg10">
+ <div class="panel fade">
+  <div class="arabic">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</div>
+  <p><em>“Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan dari jenismu sendiri agar kamu merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang.”</em></p>
+  <h3>QS. Ar-Rum: 21</h3>
+  <hr style="width:70px;margin:35px auto;border:0;border-top:1px solid rgba(255,255,255,.35)">
+  <h2>Sampai Bertemu di Hari Bahagia Kami</h2>
+  <p>Terima kasih atas segala doa, perhatian, serta kasih yang diberikan kepada kami.</p>
+  <p>Merupakan suatu kebahagiaan dan kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p>
+  <h3>Wassalamu’alaikum Warahmatullahi Wabarakatuh</h3>
+  <h2 class="closing-name">Habib &amp; Maisa</h2>
+  <p><strong>3 Oktober 2026</strong></p>
+ </div>
+</section>
+
 </div>
 
 <script>
-  const canvas = document.getElementById("wheel");
-  const ctx = canvas.getContext("2d");
+function openInvite(){
+ const content=document.getElementById("content");
+ const music=document.getElementById("music");
+ const firstSection=content.querySelector(".page-section");
+ const firstPanel=firstSection ? firstSection.querySelector(".fade") : null;
 
-  function resizeCanvas() {
-    const size = canvas.clientWidth;
-    canvas.width = size;
-    canvas.height = size;
-  }
+ document.body.classList.add("invite-open");
+ content.classList.add("opened");
+ content.style.display="block";
 
-  window.addEventListener("resize", () => {
-    resizeCanvas();
-    drawWheel();
-  });
+ // Pastikan panel pertama langsung terlihat meski observer dibuat saat content masih tersembunyi.
+ if(firstPanel){
+   firstPanel.classList.add("show");
+ }
 
-  const wheelWrapper   = document.getElementById('wheelWrapper');
-  const updateBtn      = document.getElementById('updateBtn');
-  const toggleBtn      = document.getElementById('toggleSettings');
-  const settings       = document.getElementById('settingsPanel');
-  const nameInput      = document.getElementById('nameInput');
-  const speedRange     = document.getElementById('speedRange');
-  const speedText      = document.getElementById('speedText');
-  const modeSelect     = document.getElementById('modeSelect');
-  const winnerSelect   = document.getElementById('winnerSelect');
-  const winnerLabel    = document.getElementById('winnerName');
-  const hideToggle     = document.getElementById('hideToggle');
+ // Musik hanya dicoba setelah klik pengguna agar lolos kebijakan autoplay browser.
+ if(music){
+   music.play().catch(()=>{});
+ }
 
-  // Modal
-  const winnerModal      = document.getElementById('winnerModal');
-  const winnerModalName  = document.getElementById('winnerModalName');
-  const keepWinnerBtn    = document.getElementById('keepWinnerBtn');
-  const removeWinnerBtn  = document.getElementById('removeWinnerBtn');
+ // Dua frame memberi browser waktu menghitung ulang layout sebelum scroll.
+ requestAnimationFrame(()=>{
+   requestAnimationFrame(()=>{
+     if(firstSection){
+       firstSection.scrollIntoView({behavior:"smooth",block:"start"});
+     }else{
+       window.scrollTo({top:window.innerHeight,behavior:"smooth"});
+     }
+   });
+ });
+}
+const target=new Date("2026-10-03T09:00:00").getTime();
+function updateCountdown(){
+ const diff=target-Date.now();
+ if(diff<=0){["d","h","m","s"].forEach(x=>document.getElementById(x).textContent="0");return;}
+ document.getElementById("d").textContent=Math.floor(diff/86400000);
+ document.getElementById("h").textContent=Math.floor((diff%86400000)/3600000);
+ document.getElementById("m").textContent=Math.floor((diff%3600000)/60000);
+ document.getElementById("s").textContent=Math.floor((diff%60000)/1000);
+}
+updateCountdown(); setInterval(updateCountdown,1000);
 
-  let names = [];
-  let currentRotation = 0;
-  let isSpinning = false;
-  let lastWinnerIndex = null;
+function copyRek(id,btn){
+ navigator.clipboard.writeText(document.getElementById(id).innerText.trim());
+ const old=btn.innerText; btn.innerText="✓ Berhasil Disalin";
+ setTimeout(()=>btn.innerText=old,1800);
+}
+const params=new URLSearchParams(location.search);
+const tamu=params.get("to");
+document.getElementById("namaTamu").textContent=tamu?decodeURIComponent(tamu):"Tamu Undangan";
 
-  const colors = ['#e74c3c', '#3498db', '#2ecc71', '#f1c40f', '#9b59b6', '#e67e22'];
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add("show")});
+},{threshold:.12});
+document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
 
-  function updateSpeed() {
-    const s = +speedRange.value;
-    speedText.textContent = ['Sangat Pelan', 'Pelan', 'Sedang', 'Cepat', 'Sangat Cepat'][s - 1];
-  }
+/* Saat tab kembali aktif / ukuran layar berubah, pastikan section yang sedang terlihat tidak tertinggal transparan */
+function revealVisiblePanels(){
+ document.querySelectorAll("#content .fade").forEach(el=>{
+   const r=el.getBoundingClientRect();
+   if(r.top < window.innerHeight*0.92 && r.bottom > 0){
+     el.classList.add("show");
+   }
+ });
+}
+window.addEventListener("resize",revealVisiblePanels);
+window.addEventListener("orientationchange",()=>setTimeout(revealVisiblePanels,250));
 
-  function parseNames() {
-    names = nameInput.value
-      .split("\n")
-      .map(a => a.trim())
-      .filter(a => a);
-
-    winnerSelect.innerHTML = '';
-    names.forEach((n, i) => {
-      let o = document.createElement("option");
-      o.value = i;
-      o.textContent = n;
-      winnerSelect.appendChild(o);
-    });
-
-    if (!names.length) {
-      winnerLabel.textContent = '-';
-    }
-  }
-
-  function drawWheel() {
-    const w = canvas.width, h = canvas.height, cx = w / 2, cy = h / 2;
-    const r = cx - 5;
-    ctx.clearRect(0, 0, w, h);
-    if (!names.length) return;
-
-    const slice = 2 * Math.PI / names.length;
-    ctx.save();
-    ctx.translate(cx, cy);
-    ctx.rotate(currentRotation);
-
-    names.forEach((n, i) => {
-      const a = i * slice;
-      ctx.beginPath();
-      ctx.moveTo(0, 0);
-      ctx.arc(0, 0, r, a, a + slice);
-      ctx.fillStyle = colors[i % colors.length];
-      ctx.fill();
-      ctx.strokeStyle = "#fff";
-      ctx.stroke();
-
-      ctx.save();
-      ctx.rotate(a + slice / 2);
-      ctx.translate(r * 0.65, 0);
-      ctx.rotate(Math.PI / 2);
-      ctx.fillStyle = "#fff";
-      ctx.font = "bold " + (w * 0.045) + "px Arial";
-      ctx.textAlign = "center";
-      ctx.fillText(n, 0, 0);
-      ctx.restore();
-    });
-
-    ctx.restore();
-  }
-
-  function ease(t) {
-    return 1 - Math.pow(1 - t, 4);
-  }
-
-  function showWinnerModal(name, index) {
-    winnerModalName.textContent = name;
-    lastWinnerIndex = index;
-    winnerModal.classList.remove('hidden');
-  }
-
-  function hideWinnerModal() {
-    winnerModal.classList.add('hidden');
-  }
-
-  function spinToIndex(index, speed) {
-    if (isSpinning) return;
-    isSpinning = true;
-
-    const slice = 2 * Math.PI / names.length;
-    const target = -Math.PI / 2 - (index * slice + slice / 2);
-
-    const baseD = 3800, baseS = 4;
-    const f = speed;
-    const dur = baseD - (f - 3) * 600;
-    const extra = (baseS + (f - 3) * 1.2) * 2 * Math.PI;
-    const twoPI = 2 * Math.PI;
-    const curr = ((currentRotation % twoPI) + twoPI) % twoPI;
-    const delta = target - curr;
-    const final = currentRotation + extra + delta;
-    const start = currentRotation;
-    const diff = final - start;
-    const st = performance.now();
-
-    function anim(t) {
-      const time = (t - st) / dur;
-      const k = Math.min(1, time);
-      currentRotation = start + diff * ease(k);
-      drawWheel();
-      if (k < 1) {
-        requestAnimationFrame(anim);
-      } else {
-        isSpinning = false;
-        winnerLabel.textContent = names[index];
-        currentRotation = ((currentRotation % twoPI) + twoPI) % twoPI;
-        showWinnerModal(names[index], index);
-      }
-    }
-
-    requestAnimationFrame(anim);
-  }
-
-  function spin() {
-    if (!names.length || isSpinning) return;
-    const speed = +speedRange.value;
-    let idx = modeSelect.value === "manual"
-      ? +winnerSelect.value
-      : Math.floor(Math.random() * names.length);
-
-    spinToIndex(idx, speed);
-  }
-
-  // event
-  wheelWrapper.onclick = spin; // klik roda untuk putar
-
-  updateBtn.onclick = () => {
-    parseNames();
-    resizeCanvas();
-    drawWheel();
-  };
-
-  toggleBtn.onclick = () => {
-    settings.classList.toggle("hidden");
-  };
-
-  speedRange.oninput = updateSpeed;
-
-  keepWinnerBtn.onclick = () => {
-    hideWinnerModal();
-  };
-
-  removeWinnerBtn.onclick = () => {
-    if (lastWinnerIndex == null || lastWinnerIndex < 0 || lastWinnerIndex >= names.length) {
-      hideWinnerModal();
-      return;
-    }
-    // hapus pemenang dari daftar
-    names.splice(lastWinnerIndex, 1);
-    nameInput.value = names.join("\n");
-    parseNames();
-    resizeCanvas();
-    drawWheel();
-    winnerLabel.textContent = names.length ? '-' : '-';
-    lastWinnerIndex = null;
-    hideWinnerModal();
-  };
-
-  winnerModal.addEventListener('click', (e) => {
-    if (e.target === winnerModal) hideWinnerModal();
-  });
-
-  hideToggle.addEventListener('change', () => {
-    document.body.classList.toggle('hide-mode', hideToggle.checked);
-  });
-
-  // inisialisasi awal
-  resizeCanvas();
-  parseNames();
-  drawWheel();
-  updateSpeed();
+const flowerBox=document.getElementById("flowers");
+const flowerSet=["🌸","🌷","❀","✿"];
+for(let i=0;i<24;i++){
+ const s=document.createElement("span");
+ s.textContent=flowerSet[Math.floor(Math.random()*flowerSet.length)];
+ s.style.left=Math.random()*100+"%";
+ s.style.fontSize=(15+Math.random()*15)+"px";
+ s.style.animationDuration=(10+Math.random()*10)+"s";
+ s.style.animationDelay=(-Math.random()*15)+"s";
+ flowerBox.appendChild(s);
+}
 </script>
 </body>
 </html>
