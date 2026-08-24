@@ -39,13 +39,19 @@ margin-top:15px;
 font-weight:bold;
 }
 
-input{
+input,
+textarea{
 width:100%;
 padding:12px;
 margin-top:8px;
 border:1px solid #ccc;
 border-radius:8px;
 font-size:16px;
+}
+
+textarea{
+min-height:100px;
+resize:vertical;
 }
 
 button{
@@ -108,8 +114,15 @@ value="http://habib-maisa.ege.my.id/"
 
 <input
 id="guest"
-placeholder="Contoh : anda & Keluarga"
+placeholder="Contoh : Anda & Keluarga"
 >
+
+<label>Catatan / Pesan Tambahan</label>
+
+<textarea
+id="message"
+placeholder="Contoh: Mohon hadir tepat waktu. Terima kasih atas doa dan kehadirannya."
+></textarea>
 
 <button class="generate" onclick="buatLink()">
 Generate Link
@@ -197,12 +210,28 @@ buatLink();
 
 }
 
+if(link==""){
+return;
+}
+
+let guest=document.getElementById("guest").value.trim();
+let message=document.getElementById("message").value.trim();
+
+let waText="Assalamu'alaikum Wr. Wb.\n\n";
+waText+="Kepada Yth. "+guest+"\n\n";
+waText+="Dengan hormat, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara kami.\n\n";
+
+if(message!=""){
+waText+=message+"\n\n";
+}
+
+waText+="Silakan buka undangan melalui link berikut:\n"+link+"\n\n";
+waText+="Terima kasih atas doa dan kehadirannya.\n";
+waText+="Wassalamu'alaikum Wr. Wb.";
+
 window.open(
-
-"https://wa.me/?text="+encodeURIComponent(link),
-
+"https://wa.me/?text="+encodeURIComponent(waText),
 "_blank"
-
 );
 
 }
