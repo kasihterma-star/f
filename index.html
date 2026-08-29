@@ -1,101 +1,238 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Generator Link Undangan</title>
+
+<title>Generator Link Undangan dirumah saya </title>
 
 <style>
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
 body{
-background:#f5f5f5;
-padding:30px;
+    background:#f5f5f5;
+    padding:30px;
 }
 
 .container{
-max-width:700px;
-margin:auto;
-background:#fff;
-padding:25px;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,.15);
+    max-width:700px;
+    margin:auto;
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
 h1{
-text-align:center;
-margin-bottom:25px;
-color:#b8860b;
+    text-align:center;
+    margin-bottom:25px;
+    color:#b8860b;
 }
 
 label{
-display:block;
-margin-top:15px;
-font-weight:bold;
+    display:block;
+    margin-top:15px;
+    font-weight:bold;
 }
 
 input,
 textarea{
-width:100%;
-padding:12px;
-margin-top:8px;
-border:1px solid #ccc;
-border-radius:8px;
-font-size:16px;
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
 }
 
 textarea{
-min-height:100px;
-resize:vertical;
+    min-height:100px;
+    resize:vertical;
+}
+
+
+/* =========================
+   TOMBOL UTAMA
+========================= */
+
+.button-group{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:15px;
 }
 
 button{
-padding:12px 20px;
-margin-top:15px;
-margin-right:5px;
-border:none;
-border-radius:8px;
-cursor:pointer;
-font-size:15px;
+    padding:12px 18px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
+    color:white;
+    transition:.2s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    opacity:.9;
 }
 
 .generate{
-background:#b8860b;
-color:white;
+    background:#b8860b;
 }
 
 .copy{
-background:#4CAF50;
-color:white;
+    background:#4CAF50;
 }
 
 .preview{
-background:#2196F3;
-color:white;
+    background:#2196F3;
 }
 
-.whatsapp{
-background:#25D366;
-color:white;
-}
+
+/* =========================
+   OUTPUT
+========================= */
 
 .output{
-margin-top:20px;
-background:#f1f1f1;
-padding:15px;
-border-radius:10px;
-word-break:break-all;
-font-size:15px;
+    margin-top:20px;
+    background:#f1f1f1;
+    padding:15px;
+    border-radius:10px;
+    word-break:break-all;
+    font-size:15px;
+    border-left:4px solid #b8860b;
+}
+
+
+/* =========================
+   SOCIAL MEDIA
+========================= */
+
+.social-title{
+    margin-top:30px;
+    margin-bottom:10px;
+    font-size:18px;
+    font-weight:bold;
+    text-align:center;
+}
+
+.social-buttons{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+
+.social-buttons button{
+    width:100%;
+}
+
+
+/* WhatsApp */
+
+.whatsapp{
+    background:#25D366;
+}
+
+
+/* Instagram */
+
+.instagram{
+    background:linear-gradient(
+        45deg,
+        #833AB4,
+        #E1306C,
+        #FCAF45
+    );
+}
+
+
+/* TikTok */
+
+.tiktok{
+    background:#000;
+}
+
+
+/* Telegram */
+
+.telegram{
+    background:#229ED9;
+}
+
+
+/* Facebook */
+
+.facebook{
+    background:#1877F2;
+}
+
+
+/* X */
+
+.twitter{
+    background:#000;
+}
+
+
+/* BAGIKAN */
+
+.share{
+    background:#8e44ad;
+    grid-column:1 / -1;
+}
+
+
+/* =========================
+   INFO
+========================= */
+
+.info{
+    margin-top:20px;
+    background:#fff8dc;
+    padding:12px;
+    border-radius:8px;
+    font-size:13px;
+    line-height:1.5;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    body{
+        padding:15px;
+    }
+
+    .container{
+        padding:20px;
+    }
+
+    .button-group{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+
+    .button-group button{
+        width:100%;
+    }
+
 }
 
 </style>
 
 </head>
+
 
 <body>
 
@@ -103,42 +240,73 @@ font-size:15px;
 
 <h1>Generator Link Undangan</h1>
 
+
+<!-- ========================
+     URL UNDANGAN
+========================= -->
+
 <label>URL Undangan</label>
 
 <input
-id="base"
-value="http://habib-maisa.ege.my.id/"
+    id="base"
+    value="http://habib-maisa.ege.my.id/"
 >
+
+
+<!-- ========================
+     NAMA TAMU
+========================= -->
 
 <label>Nama Tamu</label>
 
 <input
-id="guest"
-placeholder="Contoh : Anda & Keluarga"
+    id="guest"
+    placeholder="Contoh : Bapak Ahmad & Keluarga"
 >
+
+
+<!-- ========================
+     PESAN TAMBAHAN
+========================= -->
 
 <label>Catatan / Pesan Tambahan</label>
 
 <textarea
-id="message"
-placeholder="Contoh: Mohon hadir tepat waktu. Terima kasih atas doa dan kehadirannya."
+    id="message"
+    placeholder="Contoh: Mohon hadir tepat waktu. Terima kasih atas doa dan kehadirannya."
 ></textarea>
 
-<button class="generate" onclick="buatLink()">
-Generate Link
+
+<!-- ========================
+     TOMBOL UTAMA
+========================= -->
+
+<div class="button-group">
+
+<button
+    class="generate"
+    onclick="buatLink()">
+    🔗 Generate Link
 </button>
 
-<button class="copy" onclick="copyLink()">
-Copy
+<button
+    class="copy"
+    onclick="copyLink()">
+    📋 Copy
 </button>
 
-<button class="preview" onclick="previewLink()">
-Preview
+<button
+    class="preview"
+    onclick="previewLink()">
+    👁 Preview
 </button>
 
-<button class="whatsapp" onclick="waLink()">
-WhatsApp
-</button>
+</div>
+
+
+<!-- ========================
+     HASIL LINK
+========================= -->
 
 <div class="output" id="hasil">
 
@@ -146,97 +314,610 @@ Link akan muncul di sini...
 
 </div>
 
+
+<!-- ========================
+     BAGIKAN
+========================= -->
+
+<div class="social-title">
+Bagikan Undangan
 </div>
+
+
+<div class="social-buttons">
+
+
+<button
+    class="whatsapp"
+    onclick="waLink()">
+
+    💬 WhatsApp
+
+</button>
+
+
+<button
+    class="instagram"
+    onclick="instagramLink()">
+
+    📸 Instagram
+
+</button>
+
+
+<button
+    class="tiktok"
+    onclick="tiktokLink()">
+
+    🎵 TikTok
+
+</button>
+
+
+<button
+    class="telegram"
+    onclick="telegramLink()">
+
+    ✈️ Telegram
+
+</button>
+
+
+<button
+    class="facebook"
+    onclick="facebookLink()">
+
+    📘 Facebook
+
+</button>
+
+
+<button
+    class="twitter"
+    onclick="twitterLink()">
+
+    𝕏 X / Twitter
+
+</button>
+
+
+<button
+    class="share"
+    onclick="shareLink()">
+
+    📤 Bagikan ke Aplikasi Lain
+
+</button>
+
+
+</div>
+
+
+<div class="info">
+
+<b>Catatan:</b><br>
+
+WhatsApp dan Telegram dapat langsung membawa pesan undangan.<br><br>
+
+Untuk Instagram dan TikTok, pesan undangan akan otomatis disalin terlebih dahulu. Setelah aplikasi terbuka, Anda tinggal menempelkan / Paste pesan tersebut ke chat.
+
+</div>
+
+
+</div>
+
+
 
 <script>
 
+
+/* =========================================================
+   VARIABLE LINK
+========================================================= */
+
 let link="";
+
+
+
+/* =========================================================
+   GENERATE LINK
+========================================================= */
 
 function buatLink(){
 
-let base=document.getElementById("base").value.trim();
+    let base=
+    document.getElementById("base")
+    .value
+    .trim();
 
-base=base.replace(/\/$/,"");
 
-let guest=document.getElementById("guest").value.trim();
+    base=base.replace(/\/$/,"");
 
-if(guest==""){
 
-alert("Masukkan nama tamu.");
+    let guest=
+    document.getElementById("guest")
+    .value
+    .trim();
 
-return;
+
+    if(guest==""){
+
+        alert("Masukkan nama tamu.");
+
+        return false;
+
+    }
+
+
+    link=
+    base+
+    "?to="+
+    encodeURIComponent(guest);
+
+
+    document.getElementById("hasil")
+    .innerHTML=link;
+
+
+    return true;
 
 }
 
-link=base+"?to="+encodeURIComponent(guest);
 
-document.getElementById("hasil").innerHTML=link;
+
+/* =========================================================
+   MEMASTIKAN LINK SUDAH ADA
+========================================================= */
+
+function cekLink(){
+
+    if(link==""){
+
+        return buatLink();
+
+    }
+
+    return true;
+
+}
+
+
+
+/* =========================================================
+   COPY LINK
+========================================================= */
+
+async function copyLink(){
+
+    if(!cekLink()){
+        return;
+    }
+
+
+    try{
+
+        await navigator.clipboard.writeText(link);
+
+        alert("Link berhasil disalin.");
+
+    }
+
+    catch(error){
+
+        fallbackCopy(link);
+
+    }
 
 }
 
-function copyLink(){
 
-if(link==""){
 
-alert("Generate link terlebih dahulu.");
+/* =========================================================
+   FALLBACK COPY
+========================================================= */
 
-return;
+function fallbackCopy(text){
+
+    let textarea=
+    document.createElement("textarea");
+
+    textarea.value=text;
+
+    document.body.appendChild(textarea);
+
+    textarea.select();
+
+    document.execCommand("copy");
+
+    document.body.removeChild(textarea);
 
 }
 
-navigator.clipboard.writeText(link);
 
-alert("Link berhasil disalin.");
 
-}
+/* =========================================================
+   PREVIEW
+========================================================= */
 
 function previewLink(){
 
-if(link==""){
+    if(!cekLink()){
+        return;
+    }
 
-buatLink();
+    window.open(
+        link,
+        "_blank"
+    );
 
 }
 
-window.open(link,"_blank");
+
+
+/* =========================================================
+   MEMBUAT PESAN UNDANGAN
+========================================================= */
+
+function buatPesan(){
+
+    let guest=
+    document.getElementById("guest")
+    .value
+    .trim();
+
+
+    let message=
+    document.getElementById("message")
+    .value
+    .trim();
+
+
+    let text="";
+
+
+    text+="Assalamu'alaikum Wr. Wb.\n\n";
+
+
+    text+="Kepada Yth.\n";
+
+    text+=guest+"\n\n";
+
+
+    text+="Dengan hormat, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara kami.\n\n";
+
+
+    if(message!=""){
+
+        text+=message+"\n\n";
+
+    }
+
+
+    text+="Silakan buka undangan melalui link berikut:\n";
+
+    text+=link+"\n\n";
+
+
+    text+="Terima kasih atas doa dan kehadirannya.\n\n";
+
+
+    text+="Wassalamu'alaikum Wr. Wb.";
+
+
+    return text;
 
 }
+
+
+
+/* =========================================================
+   COPY PESAN
+========================================================= */
+
+async function copyPesan(){
+
+    let text=buatPesan();
+
+
+    try{
+
+        await navigator.clipboard.writeText(text);
+
+        return true;
+
+    }
+
+    catch(error){
+
+        fallbackCopy(text);
+
+        return true;
+
+    }
+
+}
+
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
 
 function waLink(){
 
-if(link==""){
+    if(!cekLink()){
+        return;
+    }
 
-buatLink();
+
+    let text=
+    buatPesan();
+
+
+    let url=
+    "https://wa.me/?text="+
+    encodeURIComponent(text);
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+
+
+/* =========================================================
+   TELEGRAM
+========================================================= */
+
+function telegramLink(){
+
+    if(!cekLink()){
+        return;
+    }
+
+
+    let text=
+    buatPesan();
+
+
+    let url=
+
+    "https://t.me/share/url?url="+
+    encodeURIComponent(link)+
+    "&text="+
+    encodeURIComponent(text);
+
+
+    window.open(
+        url,
+        "_blank"
+    );
 
 }
 
-if(link==""){
-return;
+
+
+/* =========================================================
+   FACEBOOK
+========================================================= */
+
+function facebookLink(){
+
+    if(!cekLink()){
+        return;
+    }
+
+
+    let url=
+
+    "https://www.facebook.com/sharer/sharer.php?u="+
+    encodeURIComponent(link);
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
 }
 
-let guest=document.getElementById("guest").value.trim();
-let message=document.getElementById("message").value.trim();
 
-let waText="Assalamu'alaikum Wr. Wb.\n\n";
-waText+="Kepada Yth. "+guest+"\n\n";
-waText+="Dengan hormat, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara kami.\n\n";
 
-if(message!=""){
-waText+=message+"\n\n";
+/* =========================================================
+   X / TWITTER
+========================================================= */
+
+function twitterLink(){
+
+    if(!cekLink()){
+        return;
+    }
+
+
+    let guest=
+    document.getElementById("guest")
+    .value
+    .trim();
+
+
+    let text=
+
+    "Undangan untuk "+
+    guest+
+    "\n\n"+
+    "Silakan buka undangan melalui link berikut:";
+
+
+    let url=
+
+    "https://twitter.com/intent/tweet?text="+
+    encodeURIComponent(text)+
+    "&url="+
+    encodeURIComponent(link);
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
 }
 
-waText+="Silakan buka undangan melalui link berikut:\n"+link+"\n\n";
-waText+="Terima kasih atas doa dan kehadirannya.\n";
-waText+="Wassalamu'alaikum Wr. Wb.";
 
-window.open(
-"https://wa.me/?text="+encodeURIComponent(waText),
-"_blank"
-);
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+async function instagramLink(){
+
+    if(!cekLink()){
+        return;
+    }
+
+
+    await copyPesan();
+
+
+    alert(
+        "Pesan undangan sudah disalin.\n\n"+
+        "Instagram akan dibuka.\n\n"+
+        "Masuk ke chat / DM penerima lalu tekan Paste / Tempel."
+    );
+
+
+    /*
+    Coba buka aplikasi Instagram
+    */
+
+    window.location.href=
+    "instagram://direct-inbox/";
+
+
+    /*
+    Jika aplikasi tidak terbuka,
+    arahkan ke Instagram Web
+    */
+
+    setTimeout(function(){
+
+        window.location.href=
+        "https://www.instagram.com/direct/inbox/";
+
+    },1500);
 
 }
+
+
+
+/* =========================================================
+   TIKTOK
+========================================================= */
+
+async function tiktokLink(){
+
+    if(!cekLink()){
+        return;
+    }
+
+
+    await copyPesan();
+
+
+    alert(
+        "Pesan undangan sudah disalin.\n\n"+
+        "TikTok akan dibuka.\n\n"+
+        "Masuk ke Pesan / Inbox lalu tekan Paste / Tempel."
+    );
+
+
+    /*
+    Coba membuka aplikasi TikTok
+    */
+
+    window.location.href=
+    "snssdk1233://";
+
+
+    /*
+    Jika gagal,
+    buka TikTok web
+    */
+
+    setTimeout(function(){
+
+        window.location.href=
+        "https://www.tiktok.com/messages";
+
+    },1500);
+
+}
+
+
+
+/* =========================================================
+   BAGIKAN KE APLIKASI LAIN
+========================================================= */
+
+async function shareLink(){
+
+    if(!cekLink()){
+        return;
+    }
+
+
+    let text=
+    buatPesan();
+
+
+    if(navigator.share){
+
+        try{
+
+            await navigator.share({
+
+                title:"Undangan",
+
+                text:text,
+
+                url:link
+
+            });
+
+        }
+
+        catch(error){
+
+            console.log(
+                "Bagikan dibatalkan.",
+                error
+            );
+
+        }
+
+    }
+
+    else{
+
+        await copyPesan();
+
+
+        alert(
+            "Browser Anda belum mendukung fitur Bagikan.\n\n"+
+            "Pesan undangan sudah disalin."
+        );
+
+    }
+
+}
+
 
 </script>
 
+
 </body>
 </html>
+```
